@@ -1,0 +1,38 @@
+﻿[
+  {
+    "Departure": {
+      "IATA": "CGH",
+      "Name": "Congonhas"
+    },
+    "Arrival": {
+      "IATA": "GIG",
+      "Name": "RIOgaleão"
+    },
+    "Source": "Avianca",
+    "Date": "2019-01-21T00:00:00"
+  },
+  {
+    "Departure": {
+      "IATA": "GRU",
+      "Name": "Guarulhos"
+    },
+    "Arrival": {
+      "IATA": "CPV",
+      "Name": "Campina Grande"
+    },
+    "Source": "Avianca",
+    "Date": "2019-03-24T00:00:00"
+  },
+  {
+    "Departure": {
+      "IATA": "CGH",
+      "Name": "Congonhas"
+    },
+    "Arrival": {
+      "IATA": "ROR",
+      "Name": "Roman Tmetuchl"
+    },
+    "Source": "Avianca",
+    "Date": "2019-02-04T00:00:00"
+  }
+]

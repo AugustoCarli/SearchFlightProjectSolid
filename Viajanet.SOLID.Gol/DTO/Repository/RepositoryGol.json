@@ -1,0 +1,40 @@
+[
+  {
+    "Herkunft": {
+      "IATA": "GRU",
+      "Name": "Guarulhos"
+    },
+    "Ziel": {
+      "IATA": "NYC",
+      "Name": "New York"
+    },
+    "Firma": "GOL",
+    "Datum": "2019-02-05T00:00:00"
+  },
+
+  {
+    "Herkunft": {
+      "IATA": "CGH",
+      "Name": "Congonhas"
+    },
+    "Ziel": {
+      "IATA": "CPV",
+      "Name": "Campina Grande"
+    },
+    "Firma": "GOL",
+    "Datum": "2018-01-29T00:00:00"
+  },
+
+  {
+    "Herkunft": {
+      "IATA": "GRU",
+      "Name": "Guarulhos"
+    },
+    "Ziel": {
+      "IATA": "ROR",
+      "Name": "Roman Tmetuchl"
+    },
+    "Firma": "GOL",
+    "Datum": "2018-04-20T00:00:00"
+  }
+]

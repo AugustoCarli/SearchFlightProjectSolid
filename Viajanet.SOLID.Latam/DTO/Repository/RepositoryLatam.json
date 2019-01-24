@@ -1,0 +1,39 @@
+[
+  {
+    "Origen": {
+      "IATA": "CGH",
+      "Nombre": "Congonhas"
+    },
+    "Destinos": {
+      "IATA": "GIG",
+      "Nombre": "RIOgaleão"
+    },
+    "Empresa": "LATAM",
+    "Fecha": "2019-03-02T00:00:00"
+  },
+  {
+    "Origen": {
+      "IATA": "GRU",
+      "Nombre": "Guarulhos"
+    },
+    "Destinos": {
+      "IATA": "CPV",
+      "Nombre": "Campina Grande"
+    },
+    "Empresa": "LATAM",
+    "Fecha": "2019-01-01T00:00:00"
+  },
+  {
+    "Origen": {
+      "IATA": "GRU",
+      "Nombre": "Guarulhos"
+    },
+
+    "Destinos": {
+      "IATA": "ROR",
+      "Nombre": "Roman Tmetuchl"
+    },
+    "Empresa": "LATAM",
+    "Fecha": "2019-02-26T00:00:00"
+  }
+]

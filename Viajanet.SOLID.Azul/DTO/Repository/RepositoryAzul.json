@@ -1,0 +1,40 @@
+[
+  {
+    "Origem": {
+      "IATA": "GRU",
+      "Nome": "Guarulhos"
+    },
+    "Destino": {
+      "IATA": "CPV",
+      "Nome": "Campina Grande"
+    },
+    "Compania": "Azul",
+    "Data": "2019-01-21T00:00:00"
+  },
+
+  {
+    "Origem": {
+      "IATA": "VCP",
+      "Nome": "Campinas"
+    },
+    "Destino": {
+      "IATA": "NYC",
+      "Nome": "New York"
+    },
+    "Compania": "Azul",
+    "Data": "2019-02-13T00:00:00"
+  },
+
+  {
+    "Origem": {
+      "IATA": "VCP",
+      "Nome": "Campinas"
+    },
+    "Destino": {
+      "IATA": "ROR",
+      "Nome": "Roman Tmetuchl"
+    },
+    "Compania": "Azul",
+    "Data": "2019-04-21T00:00:00"
+  }
+]

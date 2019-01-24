@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{867ED0BF-90E2-44FB-8A6F-A83E72DCC55D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>POC.Augusto_</RootNamespace>
+    <AssemblyName>POC.Augusto]</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Viajanet.SOLID.Avianca\Viajanet.SOLID.Avianca.csproj">
+      <Project>{64633f1d-27be-4667-8081-a0404dcda2a0}</Project>
+      <Name>Viajanet.SOLID.Avianca</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viajanet.SOLID.Azul\Viajanet.SOLID.Azul.csproj">
+      <Project>{544E7E90-0CE7-44E3-A430-2ED772E06FBC}</Project>
+      <Name>Viajanet.SOLID.Azul</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viajanet.SOLID.Domain\Viajanet.SOLID.Domain.csproj">
+      <Project>{d2786ed8-c092-42f4-b012-2ae75af757e6}</Project>
+      <Name>Viajanet.SOLID.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viajanet.SOLID.Gol\Viajanet.SOLID.Gol.csproj">
+      <Project>{8494360A-C333-4109-B0E1-BBDC22A860F8}</Project>
+      <Name>Viajanet.SOLID.Gol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viajanet.SOLID.Latam\Viajanet.SOLID.Latam.csproj">
+      <Project>{AE4DF2C9-3014-41C8-81C8-03C6533011F4}</Project>
+      <Name>Viajanet.SOLID.Latam</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viajanet.SOLID.Passaredo\Viajanet.SOLID.Passaredo.csproj">
+      <Project>{CF8E23E5-EC8A-483B-A903-371C5D651DD3}</Project>
+      <Name>Viajanet.SOLID.Passaredo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

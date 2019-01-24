@@ -1,0 +1,38 @@
+[
+  {
+    "Origine": {
+      "IATA": "VCP",
+      "Nom": "Campinas"
+    },
+    "Destination": {
+      "IATA": "GIG",
+      "Nom": "RIOgaleão"
+    },
+    "Compagnie": "Passaredo",
+    "Dates": "2018-12-21T00:00:00"
+  },
+  {
+    "Origine": {
+      "IATA": "GRU",
+      "Nom": "Guarulhos"
+    },
+    "Destination": {
+      "IATA": "NYC",
+      "Nom": "New York"
+    },
+    "Compagnie": "Passaredo",
+    "Dates": "2018-12-21T00:00:00"
+  },
+  {
+    "Origine": {
+      "IATA": "VCP",
+      "Nom": "Campinas"
+    },
+    "Destination": {
+      "IATA": "ROR",
+      "Nom": "Roman Tmetuchl"
+    },
+    "Compagnie": "Passaredo",
+    "Dates": "2018-12-21T00:00:00"
+  }
+]
