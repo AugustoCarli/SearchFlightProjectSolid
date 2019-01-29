@@ -1,7 +1,10 @@
-﻿namespace Viajanet.SOLID.Domain.Interfaces
+﻿using System.Collections.Generic;
+using Viajanet.SOLID.Domain.Domain;
+
+namespace Viajanet.SOLID.Domain.Interfaces
 {
     public interface ISearchRecomendationService
     {
-        void Search(string origem, string destino);
+        IEnumerable<Flights> Search(string origem, string destino);
     }
 }

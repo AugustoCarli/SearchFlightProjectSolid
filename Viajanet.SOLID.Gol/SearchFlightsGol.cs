@@ -2,8 +2,10 @@
 using System.Linq;
 using Viajanet.SOLID.Domain.Domain;
 using Viajanet.SOLID.Domain.Interfaces.ExternalServices;
+using Viajanet.SOLID.Gol.DTO;
+using Viajanet.SOLID.Gol.Infra;
 
-namespace Viajanet.SOLID.Gol.Domain
+namespace Viajanet.SOLID.Gol
 {
     public class SearchFlightsGol : ISearchFlights
     {
@@ -16,7 +18,10 @@ namespace Viajanet.SOLID.Gol.Domain
 
         public List<Flights> SearchIATA(string origem, string destino)
         {
-            return ParserList(_flights.Where(x => x.Herkunft.IATA == origem && x.Ziel.IATA == destino));
+            return ParserList(_flights.Where(x => 
+            { 
+                return x.Herkunft.IATA == origem && x.Ziel.IATA == destino; 
+            }));
         }
 
         private static List<Flights> ParserList(IEnumerable<GolFlights> golFlights)

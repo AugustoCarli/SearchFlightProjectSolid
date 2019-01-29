@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Viajanet.SOLID.Gol.Domain
+namespace Viajanet.SOLID.Gol.DTO
 {
     public class GolLocations
     {

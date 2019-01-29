@@ -5,7 +5,7 @@ using Viajanet.SOLID.Azul.Domain;
 using Viajanet.SOLID.Domain.Interfaces;
 using Viajanet.SOLID.Domain.Interfaces.ExternalServices;
 using Viajanet.SOLID.Domain.Service;
-using Viajanet.SOLID.Gol.Domain;
+using Viajanet.SOLID.Gol;
 using Viajanet.SOLID.Latam.DTO;
 using Viajanet.SOLID.Passaredo.DTO;
 
@@ -13,20 +13,29 @@ namespace POC.Augusto_
 {
     class Program
     {
+        private static StandardKernel _kernel;
+
         static void Main(string[] args)
         {
-            IKernel kernel = new StandardKernel();
-            kernel.Bind<ISearchFlights>().To<SearchFlightsAvianca>().InSingletonScope().Named("Avianca").WithConstructorArgument(@"C:\Users\apcarli\source\repos\ProjectSOLID\Viajanet.SOLID.Avianca\DTO\Repository\RespositoryAvianca.json");
-            kernel.Bind<ISearchFlights>().To<SearchFlightsAzul>().InSingletonScope().Named("Azul").WithConstructorArgument(@"C:\Users\apcarli\source\repos\ProjectSOLID\Viajanet.SOLID.Azul\DTO\Repository\RepositoryAzul.json");
-            kernel.Bind<ISearchFlights>().To<SearchFlightsGol>().InSingletonScope().Named("Gol").WithConstructorArgument(@"C:\Users\apcarli\source\repos\ProjectSOLID\Viajanet.SOLID.Gol\DTO\Repository\RepositoryGol.json");
-            kernel.Bind<ISearchFlights>().To<SearchFlightsLatam>().InSingletonScope().Named("Latam").WithConstructorArgument(@"C:\Users\apcarli\source\repos\ProjectSOLID\Viajanet.SOLID.Latam\DTO\Repository\RepositoryLatam.json");
-            kernel.Bind<ISearchFlights>().To<SearchFlightsPassaredo>().InSingletonScope().Named("Passaredo").WithConstructorArgument(@"C:\Users\apcarli\source\repos\ProjectSOLID\Viajanet.SOLID.Passaredo\DTO\Repository\RepositoryPassaredo.json");
-            kernel.Bind<ISearchRecomendationService>().To<SearchRecomendationService>().InSingletonScope();
-
-            Menu(kernel);
+            WarmUp();
+            Menu();
         }
 
-        private static void Menu(IKernel kernel)
+
+        private static void WarmUp()
+        {
+            _kernel = new StandardKernel();
+            _kernel.Bind<ISearchFlights>().To<SearchFlightsAvianca>().InSingletonScope().Named("Avianca").WithConstructorArgument("DTO/Repository/RespositoryAvianca.json");
+            _kernel.Bind<ISearchFlights>().To<SearchFlightsAzul>().InSingletonScope().Named("Azul").WithConstructorArgument("DTO/Repository/RepositoryAzul.json");
+            _kernel.Bind<ISearchFlights>().To<SearchFlightsGol>().InSingletonScope().Named("Gol").WithConstructorArgument(@"Infra/RepositoryGol.json");
+            _kernel.Bind<ISearchFlights>().To<SearchFlightsLatam>().InSingletonScope().Named("Latam").WithConstructorArgument(@"DTO/Repository/RepositoryLatam.json");
+            _kernel.Bind<ISearchFlights>().To<SearchFlightsPassaredo>().InSingletonScope().Named("Passaredo").WithConstructorArgument(@"DTO/Repository/RepositoryPassaredo.json");
+            _kernel.Bind<IIataService>().To<IataService>();
+            _kernel.Bind<ISearchRecomendationService>().To<SearchRecomendationService>().InSingletonScope();
+
+        }
+
+        private static void Menu()
         {
             int cont;
             string origem = "";
@@ -39,11 +48,10 @@ namespace POC.Augusto_
 
             int.TryParse(Console.ReadLine(), out cont);
             Console.WriteLine();
-
-            Cases(kernel, cont, origem, destino);
+            Cases(cont, origem, destino);
         }
 
-        private static void Cases(IKernel kernel, int cont, string origem, string destino)
+        private static void Cases(int cont, string origem, string destino)
         {
             switch (cont)
             {
@@ -58,16 +66,24 @@ namespace POC.Augusto_
                     destino = destino.ToUpper();
                     Console.WriteLine();
 
-                    var list = kernel.GetAll(typeof(ISearchFlights));
-                    kernel.Bind<IValidationRecomendationService>().To<ValidationRecomendationService>();
 
-                    var search = kernel.Get<ISearchRecomendationService>();
-                    search.Search(origem, destino);
+                    var search = _kernel.Get<ISearchRecomendationService>();
+                    var flightList = search.Search(origem, destino);
+
+                    foreach (var item in flightList)
+                    {
+                        Console.WriteLine("\n" + item.Departure.IATA);
+                        Console.WriteLine(item.Departure.Name);
+                        Console.WriteLine(item.Arrival.IATA);
+                        Console.WriteLine(item.Arrival.Name);
+                        Console.WriteLine(item.Date);
+                        Console.WriteLine(item.Source + "\n");
+                    }
 
                     Console.WriteLine("Aperte ENTER para selecionar uma nova opção");
                     Console.ReadKey();
                     Console.Clear();
-                    Menu(kernel);
+                    Menu();
                     break;
 
                 case 2:
@@ -81,7 +97,7 @@ namespace POC.Augusto_
                     Console.WriteLine("OPS, aperte Enter para selecionar outra opção");
                     Console.ReadKey();
                     Console.Clear();
-                    Cases(kernel, 1, origem, destino);
+                    Menu();
                     break;
             }
         }

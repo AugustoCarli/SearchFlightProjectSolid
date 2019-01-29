@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
-using Viajanet.SOLID.Gol.Domain;
+using Viajanet.SOLID.Gol.DTO;
 
-namespace Viajanet.SOLID.Gol
+namespace Viajanet.SOLID.Gol.Infra
 {
     public class ReadJson
     {
